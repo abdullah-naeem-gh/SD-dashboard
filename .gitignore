@@ -2,5 +2,5 @@ node_modules
 public\*.png
 .env
 package-lock.json
-public/generated-image-0.png
-public/generated-image.png
+src/index.ts
+public/*.png

@@ -74,7 +74,7 @@ app.post('/generate-sync', async (req: Request, res: Response) => {
                 input: {
                     prompt,
                     negative_prompt,
-                    bactch: parseInt(num_images.toString()),
+                    batch_size: parseInt(num_images.toString()),
                     width,
                     height,
                     seed: seed ? parseInt(seed.toString()) : undefined,
