@@ -1,41 +1,55 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg, #1e1335, #261745);
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .container {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
 }
 
 h1 {
-    text-align: center;
+    font-size: 2rem;
     margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: bold;
+    color: #e0e0e0;
 }
 
 input[type="text"], textarea, select, input[type="number"] {
     width: 100%;
-    padding: 8px;
+    padding: 12px;
     margin-top: 5px;
-    margin-bottom: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
     box-sizing: border-box;
+    font-size: 1rem;
 }
 
 input[type="checkbox"] {
@@ -44,44 +58,54 @@ input[type="checkbox"] {
 
 .radio-group label {
     margin-right: 20px;
+    color: #e0e0e0;
 }
 
 button[type="submit"] {
     width: 100%;
-    padding: 10px;
-    background-color: #007bff;
+    padding: 12px;
+    background: linear-gradient(90deg, #6a5acd, #8a2be2);
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
+    transition: background 0.3s ease;
 }
 
 button[type="submit"]:hover {
-    background-color: #0056b3;
+    background: linear-gradient(90deg, #483d8b, #6a5acd);
 }
 
 .advanced-settings {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .advanced-settings button {
     width: 100%;
-    padding: 8px;
-    background-color: #ddd;
-    border: none;
-    border-radius: 4px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
     cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
 }
 
 .advanced-settings button:hover {
-    background-color: #ccc;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 #advanced-settings-panel {
-    margin-top: 10px;
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 #advanced-settings-panel label {
     margin-top: 10px;
+    color: #e0e0e0;
 }

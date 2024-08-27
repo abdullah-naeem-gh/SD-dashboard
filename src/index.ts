@@ -41,13 +41,16 @@ app.get('/', (req: Request, res: Response) => {
 app.post('/generate-sync', async (req: Request, res: Response) => {
     const {
         prompt,
-        negative_prompt,
+        negative_prompt = 'nsfw, naked, nude, distorted, extra limbs, 3d',
         num_images,
         aspect_ratio,
-        seed,
-        cfg_scale,
-        num_inference_steps
+        seed = -1,  // Default seed value
+        cfg_scale = 1.5,  // Default CFG scale value
+        num_inference_steps = 8  // Default inference steps
     }: GenerateRequestBody = req.body;
+
+    const forbiddenTerms = ["nsfw", "naked", "nude"];
+    const negativePromptWithTerms = `${negative_prompt} + naked, nude, nsfw, 3d`
 
     // Convert aspect_ratio to width and height
     let width: number, height: number;
@@ -73,13 +76,13 @@ app.post('/generate-sync', async (req: Request, res: Response) => {
             {
                 input: {
                     prompt,
-                    negative_prompt,
+                    negative_prompt: negativePromptWithTerms,
                     batch_size: parseInt(num_images.toString()),
                     width,
                     height,
-                    seed: seed ? parseInt(seed.toString()) : undefined,
-                    cfg_scale: cfg_scale ? parseFloat(cfg_scale.toString()) : undefined,
-                    steps: num_inference_steps ? parseInt(num_inference_steps.toString()) : undefined
+                    seed: seed === -1 ? undefined : seed,  // Use default if not set
+                    cfg_scale,
+                    steps: num_inference_steps
                 }
             },
             {
@@ -104,6 +107,7 @@ app.post('/generate-sync', async (req: Request, res: Response) => {
         res.status(500).send('Something went wrong.');
     }
 });
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
